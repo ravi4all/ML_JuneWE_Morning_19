@@ -1,0 +1,12 @@
+Data Preprocessing
+- Handle Missing Values
+=> in your missng data either we put mean of that column or drop that particular row or fill zero
+
+- Feature Scaling
+=> Normalization or Standardisation - using these 2 techniques we converge our large values to small values, generally scale b/w 0-1
+
+- Label Encoding => One hot encoding
+=> we convert our text data like gender or city into binary form
+
+- Train Test Split
+=> to prevent from overfitting
