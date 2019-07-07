@@ -1,0 +1,26 @@
+Image Processing
+Opencv
+
+cv - computer vision
+
+
+pip install opencv-python
+
+conda install -c conda-forge opencv
+
+Anaconda Navigator
+Haar features
+viola-jones
+
+
+
+
+
+
+
+
+
+
+
+
+
