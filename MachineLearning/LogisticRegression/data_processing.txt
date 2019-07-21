@@ -1,0 +1,19 @@
+Data Preprocessing
+- Handle Missing Values
+- Feature Scaling (Normalization/Standardization)
+- Label Encoding (OneHotEncoding)
+- Train Test Split (K-Fold Cross Validation)
+
+
+Optimization Techniques
+- Batch Gradient Descent
+- Mini Batch Gradient Descent
+- Stochastic Gradient Descent
+
+
+
+
+
+
+
+
