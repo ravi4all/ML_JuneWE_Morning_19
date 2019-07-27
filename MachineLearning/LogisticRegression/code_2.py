@@ -55,7 +55,7 @@ def accuracy_score(pred,actual):
     for i in range(len(actual)):
         if actual[i] == pred[i]:
             count += 1
-    return count / len(predict) * 100
+    return count / len(pred) * 100
 
 def sgd_logistic(dataset, alpha, epochs):
     coef = [0] * len(dataset[0])
@@ -69,11 +69,31 @@ def sgd_logistic(dataset, alpha, epochs):
     return coef
     
 
-def logisticRegression():
-    pass
+def logisticRegression(train,test,epochs,alpha):
+    coef = sgd_logistic(train,alpha, epochs)
+    predictions = []
+    for row in test:
+        pred = predict(row,coef)
+        predictions.append(round(pred))
+    return predictions
 
-def evaluateAlgorithm():
-    pass
+def evaluateAlgorithm(dataset,epochs,alpha):
+    scores = []
+    folds = crossValidation(dataset)
+    for fold in folds:
+        train = list(folds)
+        train.remove(fold)
+        train = sum(train,[])
+        test = []
+        for row in fold:
+            rowcopy = list(row)
+            rowcopy[-1] = None
+            test.append(rowcopy)
+        prediction = logisticRegression(train,test,epochs, alpha)
+        actual = [row[-1] for row in fold]
+        score = accuracy_score(prediction, actual)
+        scores.append(score)
+    return scores
 
 filename = 'data.csv'
 dataset = loadDataset(filename)
@@ -81,5 +101,8 @@ str_to_float(dataset)
 minMaxValues = minMax(dataset)
 normalization(dataset, minMaxValues)
 #folds = crossValidation(dataset)
+epochs = 10000
+alpha = 0.01
+evaluateAlgorithm(dataset,epochs,alpha)
 
 
